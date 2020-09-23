@@ -11,10 +11,11 @@ class TestSet:
         b = a.copy()
         assert a == b
 
-    def test_intersection(self):
-        a = set('12345')
-        b = set('34567')
-        assert a.intersection(b) == {'3', '4', '5'}
+    @pytest.mark.parametrize("input, expected", [(['123', '456'], ''), (['2345', '4567'], '45')])
+    def test_intersection(self, input, expected):
+        a = set(input[0])
+        b = set(input[1])
+        assert a.intersection(b) == set(expected)
 
     def test_pop_len(self):
         a = set('len')
