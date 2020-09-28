@@ -10,10 +10,10 @@ def test_cut():
     first = [1, 2, 3, 4]
     assert first[1:3] == [2, 3]
 
-@pytest.mark.parametrize('i', list(range(4)))
-def test_index(i):
-    first = [1, 3]
-    assert i in first
+@pytest.mark.parametrize("input_val, expected", [(1, 2), (2, 0)])
+def test_count(input_val, expected):
+    first = [1, 1, 3]
+    assert first.count(input_val) == expected
 
 def test_len():
     assert len([1, 2, 3]) == 3

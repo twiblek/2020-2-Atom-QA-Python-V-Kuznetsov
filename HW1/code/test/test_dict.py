@@ -18,7 +18,7 @@ def test_len():
 def test_empty_key():
     first = {}
     with pytest.raises(KeyError):
-        assert first['test']
+        first['test']
 
 class TestSet:
     def test_add(self):

@@ -19,8 +19,9 @@ def test_intersection(input_val, expected):
 class TestSet:
     def test_pop_len(self):
         first = set('len')
+        initial_length = len(first)
         first.pop()
-        assert len(first) == 2
+        assert len(first) == initial_length - 1
 
     def test_remove(self):
         first = set('remove')
