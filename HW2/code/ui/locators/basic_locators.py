@@ -14,7 +14,7 @@ class MainPageLocators(BasePageLocators):
 class CampaignsPageLocators(BasePageLocators):
     CREATE_NEW_CAMP_BUTTON = (By.CLASS_NAME, 'button-module-textWrapper-3LNyYP')
 
-    CAMPAIGNS_TABLE = (By.XPATH, '//span[contains(text(), "Название")]')
+    CAMPAIGNS_TABLE = (By.XPATH, '//span[@title="Название" and contains(text(), "Название")]')
                        
 class CreateCampLocators(BasePageLocators):
     TRAFFIC_BUTTON = (By.XPATH, '//div[contains(text(), "Трафик")]')
@@ -23,8 +23,8 @@ class CreateCampLocators(BasePageLocators):
     TITLE_FIELD = (By.XPATH, '//li[@data-name="title"]//input')
     TEXT_FIELD = (By.XPATH, '//li[@data-class-name="TextArea"]//textarea')
 
-    TEMPLATE_BANNER_IMAGE = (By.XPATH, '//div[@class="js-medialib"]//div[@draggable="true"]')
-    UPLOAD_BANNER_IMAGE_BUTTON = (By.XPATH, '//div[@class="banner-preview__middle"]//div[@class="banner-preview__image js-image-wrap"]')
+    UPLOAD_BANNER_BUTTON = (By.XPATH, '//div[@class="banner-form"]//input[@type="file"]')
+    DELETE_BANNER_BUTTON = (By.XPATH, '//div[@class="banner-form"]//div[contains(text(), "Удалить")]')
 
     URL_FIELD = (By.XPATH, '//*[@placeholder="Введите ссылку"]')
 

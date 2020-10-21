@@ -11,7 +11,7 @@ import time
 class CreateCampPage(BasePage):
     locators = CreateCampLocators()
 
-    def creation(self, title = 'title', url = 'https://technoatom.mail.ru/', text = 'text'):
+    def creation(self, title = 'title', url = 'https://technoatom.mail.ru/', image_path = 'img.jpg'):
 
         self.click(self.locators.TRAFFIC_BUTTON)
 
@@ -26,7 +26,10 @@ class CreateCampPage(BasePage):
         text_field = self.find(self.locators.TEXT_FIELD)
         text_field.send_keys(title)     
         
-        self.drag_and_drop(self.locators.TEMPLATE_BANNER_IMAGE, self.locators.UPLOAD_BANNER_IMAGE_BUTTON)
+        banner = self.find(self.locators.UPLOAD_BANNER_BUTTON)
+        banner.send_keys(image_path)
+
+        self.find(self.locators.DELETE_BANNER_BUTTON)
 
         name_campaign = self.find(self.locators.CAMPAIGN_NAME).get_attribute('value')
 

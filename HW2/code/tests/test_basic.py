@@ -6,6 +6,8 @@ from selenium.webdriver.common.by import By
 
 from tests.base import BaseCase
 
+from os import path
+
 
 class Test(BaseCase):
 
@@ -36,13 +38,19 @@ class Test(BaseCase):
 
     @pytest.mark.ui
     def test_wrong_auth(self):
-        self.main_page.authorization('qwert@yandex.ru', 'qwert')
+        self.main_page.authorization('qwert1@yandex.ru', 'qwer1')
         assert "Invalid login or password" in self.driver.page_source
 
     @pytest.mark.ui
     def test_create_campaign(self, auth):
         self.campaigns_page.start_creation()
-        campaign_name = self.create_camp_page.creation()
+
+        image_path = path.abspath('resources/banner.jpg')
+
+        campaign_name = self.create_camp_page.creation(title = 'title', 
+                                                       url = 'https://technoatom.mail.ru/', 
+                                                       image_path = image_path)
+
         self.base_page.find(self.campaigns_page.locators.CAMPAIGNS_TABLE)
         assert campaign_name in self.driver.page_source
     
