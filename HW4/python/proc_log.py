@@ -82,7 +82,7 @@ class LOGGER_PROCESSING():
 		for key in res:
 			if type(res[key]) == type(pd.DataFrame()):
 				res[key] = res[key].to_dict('records')
-				print(res[key])
+				#print(res[key])
 
 		with open(output, 'w', encoding='utf-8') as f:
 			f.write(json.dumps(res, indent=4))
