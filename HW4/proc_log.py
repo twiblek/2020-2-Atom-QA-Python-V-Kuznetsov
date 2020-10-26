@@ -5,7 +5,7 @@ import pandas as pd
 import argparse
 import json
 import re
-LINEFORMAT = re.compile(r"""^(?P<ipaddress>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - \[(\d{2}\/[A-Za-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] ((\".*(?P<method>GET|POST|HEAD|PUT) )(?P<url>.+)(HTTP\/1\.[1,0]")) (?P<statuscode>\d{3}) (?P<bytessent>(\d+|-)) ((-|"(.*)")) (["](.*)["]) (["]([^"]*)["])$""")
+LINEFORMAT = re.compile(r"""^(?P<ipaddress>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - - \[(\d{2}\/[A-Za-z]{3}\/\d{4}:\d{2}:\d{2}:\d{2} (\+|\-)\d{4})\] ((\".*(?P<method>GET|POST|HEAD|PUT|OPTIONS|PATCH|DELETE|TRACE|CONNECT) )(?P<url>.+)(HTTP\/1\.[1,0]")) (?P<statuscode>\d{3}) (?P<bytessent>(\d+|-)) ((-|"(.*)")) (["](.*)["]) (["]([^"]*)["])$""")
 
 class LOGGER_PROCESSING():
 	def __init__(self, input, output, is_json = False):
@@ -118,7 +118,7 @@ if __name__ == '__main__':
 
 	args = parser.parse_args()
 	#print(args)
-	LOGGER_PROCESSING(input = args.input,
+	LOGGER_PROCESSING( input = args.input,
 					   output = args.output,
 					   is_json = args.json
 					   )
