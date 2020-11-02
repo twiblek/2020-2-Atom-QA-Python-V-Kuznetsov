@@ -1,0 +1,8 @@
+{
+	"database": "postgresql",
+	"db_name": "python_qa",
+	"user": "postgres",
+	"password": "123456a",
+	"host": "localhost",
+	"port": "5432"
+}
