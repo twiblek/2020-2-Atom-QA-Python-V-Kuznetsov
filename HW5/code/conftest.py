@@ -26,3 +26,4 @@ def logger(session):
     log = logging.getLogger('db_logger')
     log.setLevel(logging.DEBUG)
     log.addHandler(LogDBHandler(session))
+    return log
