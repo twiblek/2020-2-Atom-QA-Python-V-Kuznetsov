@@ -1,13 +1,7 @@
-import allure
 import pytest
-from allure_commons.types import AttachmentType
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.by import By
 
 from tests.base import BaseCase
-
 from os import path
-
 
 class Test(BaseCase):
 
@@ -45,7 +39,7 @@ class Test(BaseCase):
     def test_create_campaign(self, auth):
         self.campaigns_page.start_creation()
 
-        image_path = path.abspath('resources/banner.jpg')
+        image_path = path.join(path.dirname(path.abspath(__file__)), 'banner.jpg')
 
         campaign_name = self.create_camp_page.creation(title = 'title', 
                                                        url = 'https://technoatom.mail.ru/', 
